@@ -1,5 +1,5 @@
 {
-    "name": "sebastian/git",
+    "name": "fouroneone/gitwrapper",
     "description": "Simple wrapper for Git",
     "keywords": ["git"],
     "homepage": "http://www.github.com/sebastianbergmann/git",
