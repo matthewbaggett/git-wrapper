@@ -70,8 +70,7 @@ class Git
      */
     public function init($uri)
     {
-        $output = $this->execute('git clone --quiet ' . $uri . ' . 2>&1');
-        var_dump($output);exit;
+        $this->execute('git clone --quiet ' . $uri . ' . 2>&1');
     }
 
     /**
@@ -158,6 +157,9 @@ class Git
         chdir($cwd);
 
         if ($returnValue !== 0) {
+            if(is_array($output)){
+              $output = reset($output);
+            }
             throw new RuntimeException($output);
         }
 
