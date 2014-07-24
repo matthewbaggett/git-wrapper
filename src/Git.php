@@ -67,9 +67,14 @@ class Git
 
     /**
      * @param $uri
+     * @param null $username
+     * @param null $password
      */
-    public function init($uri)
+    public function init($uri, $username = null, $password = null)
     {
+        if($username && $password){
+            $uri = str_replace("://", "://{$username}:{$password}@", $uri);
+        }
         $this->execute('git clone --quiet ' . $uri . ' . 2>&1');
     }
 
